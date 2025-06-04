@@ -7,28 +7,33 @@
 
 import Foundation
 
-
 struct Mission: Codable, Identifiable {
     struct CrewRole: Codable {
         let name: String
         let role: String
     }
-    
+
     let id: Int
     let launchDate: Date?
     let crew: [CrewRole]
     let description: String
-    
-    
+
     var displayName: String {
         "Apollo \(id)"
     }
-    
-    var image : String {
+
+    var image: String {
         "apollo\(id)"
     }
-    
-    var formattedLaunchDate : String {
+
+    var formattedLaunchDate: String {
         launchDate?.formatted(date: .abbreviated, time: .omitted) ?? "N/A"
     }
 }
+
+let testMissionForPreviews = Mission(
+    id: 11,
+    launchDate: nil,
+    crew: [],
+    description: ""
+)
